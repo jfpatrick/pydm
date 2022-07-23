@@ -22,8 +22,9 @@ class Connection(PyDMConnection):
         self.value = address
         self.unit = None
 
+# Assume CLASSPATH is set properly
         if (not jp.isJVMStarted()):
-            jp.startJVM(classpath=['./usgov.jar', './rabbitmq-client.jar'])
+            jp.startJVM()
         self.cls = jp.JClass("gov.fnal.controls.tools.dio.DIODMQ")
         self.package = jp.JPackage("gov.fnal.controls.tools.dio")
         self.typeerr = jp.JClass("gov.fnal.controls.tools.timed.TimedError")
